@@ -3,13 +3,13 @@
     <channel>
         <title>Tellshot</title>
         <item>
-            <title>0.5.1</title>
-            <pubDate>Thu, 06 Aug 2026 08:53:16 +0900</pubDate>
+            <title>0.5.2</title>
+            <pubDate>Fri, 07 Aug 2026 15:03:00 +0900</pubDate>
             <link>https://github.com/Agoraxa-Lab/tellshot-updates/releases/latest</link>
-            <sparkle:version>9</sparkle:version>
-            <sparkle:shortVersionString>0.5.1</sparkle:shortVersionString>
+            <sparkle:version>10</sparkle:version>
+            <sparkle:shortVersionString>0.5.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/Agoraxa-Lab/tellshot-updates/releases/download/v0.5.1-9/Tellshot-0.5.1-9.zip" length="6496711" type="application/octet-stream" sparkle:edSignature="+/EKG+rqY6cbqakAKznyHr9W08yOoPomMAKHryKuy5aBLdT+KSb8PcmzgqNmadVq69e41PeuF3vfuDJw4nQZBQ=="/>
+            <enclosure url="https://github.com/Agoraxa-Lab/tellshot-updates/releases/download/v0.5.2-10/Tellshot-0.5.2-10.zip" length="6522732" type="application/octet-stream" sparkle:edSignature="sTBxFjpt7Vt5xlhiHHuc3KI92inwZwyBClaTLm4m7lSUL0PE4hGZvPEKO4hNDtKixS/fO9L8aPhjVlQvC9myAg=="/>
         </item>
     </channel>
 </rss>
