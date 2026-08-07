@@ -1,0 +1,32 @@
+name: download-metrics
+
+# 毎日 09:00 JST に各リリースアセットのダウンロード数を記録する(Gate 2 計測)
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record download counts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p metrics
+          ts=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          gh api "repos/${{ github.repository }}/releases" --paginate \
+            --jq '.[] | {tag: .tag_name, assets: [.assets[] | {name: .name, downloads: .download_count}]}' \
+            | while read -r line; do
+                jq -cn --arg ts "$ts" --argjson rel "$line" '{ts: $ts} + $rel'
+              done >> metrics/downloads.jsonl
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add metrics/downloads.jsonl
+          git commit -m "chore: record download counts ($ts)" || echo "no changes"
+          git push
